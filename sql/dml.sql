@@ -1,0 +1,1 @@
+-- DML Scripts: LOAD DATA, INSERT, UPDATE, DELETE, and validation queries
