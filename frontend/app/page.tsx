@@ -1,65 +1,100 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <>
+      {/* LOGIN SCREEN */}
+      <div id="loginScreen" className="login-screen">
+        <div className="login-card">
+          <div className="login-brand">
+            <div id="loginLogo" className="brand-icon"></div>
+            <h1 id="loginTitle">DSWOPS</h1>
+            <p id="loginOrg">
+              Directorate of Wildlife, Khyber Pakhtunkhwa
+            </p>
+          </div>
+
+          <div className="form-group">
+            <label>Username</label>
+            <input
+              id="loginUsername"
+              type="text"
+              autoComplete="username"
+              placeholder="Enter username"
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Password</label>
+            <input
+              id="loginPassword"
+              type="password"
+              autoComplete="current-password"
+              placeholder="Enter password"
+            />
+          </div>
+
+          <div
+            id="loginError"
+            className="login-error"
+            style={{ display: "none" }}
+          ></div>
+
+          <button
+            id="loginBtn"
+            className="btn btn-primary btn-full"
+          >
+            Sign In
+          </button>
+
+          <p id="loginFooter" className="login-footer">
+            Document Scanner & Work Order Processing System
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      {/* MAIN APP */}
+      <div id="app" style={{ display: "none" }}>
+        <header className="topbar">
+          <div className="topbar-left">
+            <div
+              id="appLogoImg"
+              className="topbar-logo-img"
+              style={{ display: "none" }}
+            ></div>
+            <span id="appTitle" className="topbar-title">
+              DSWOPS
+            </span>
+          </div>
+
+          <nav className="topbar-nav">
+            <button className="nav-btn active">
+              Scan Document
+            </button>
+            <button className="nav-btn">Records</button>
+            <button className="nav-btn">Activity Log</button>
+            <button className="nav-btn admin-only" style={{ display: "none" }}>
+              Admin
+            </button>
+          </nav>
+
+          <div className="topbar-user">
+            <span id="userDisplayName" className="user-name"></span>
+            <span id="userRoleBadge" className="role-badge"></span>
+            <button className="btn btn-ghost btn-sm">
+              Sign Out
+            </button>
+          </div>
+        </header>
+
+        {/* SCAN VIEW (ONLY STRUCTURE FOR NOW) */}
+        <div id="view-scan" className="view active">
+          <h2>Scan Document</h2>
         </div>
-      </main>
-    </div>
+
+        {/* OTHER VIEWS (PLACEHOLDERS FOR NOW) */}
+        <div id="view-records" className="view"></div>
+        <div id="view-activity" className="view"></div>
+        <div id="view-admin" className="view"></div>
+      </div>
+    </>
   );
 }
